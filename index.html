@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="lib.js"></script>
+</head>
+<body>
+<div id="d">
+	
+</div>
+<script type="text/javascript">
+	var dEl = document.getElementById( 'd' );
+	var linBarObj = linBar({el: dEl, height: 20});
+	linBarObj.render();
+	linBarObj.addBar({
+		style: {fill: "green"},
+		percentage: 50,
+		offset: 20
+	});
+</script>
+</body>
+</html>
