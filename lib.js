@@ -31,12 +31,25 @@ function linBar( params ) {
             barEl.setAttribute( "x", (offset / 100).toString() );
             barEl.setAttribute( "width", (percentage / 100).toString() );
             barEl.setAttribute( "height", "1000" );
-            barEl.setAttribute( "style", Object.keys( style ).map(function ( key ) { return key + ":" + style[key]; }).join() );
+            barEl.setAttribute( "style", Object.keys( style ).map(function ( key ) { return key + ":" + style[key] + ";"; }).join("") );
             gWrapper.appendChild( barEl );
             var barObj = {el: barEl};
             barsObj.push( barObj );
             return barObj;
 
+        },
+
+        removeAt: function ( index ) {
+            var barObj = barsObj[index];
+            barObj.el.parentNode.removeChild(barObj.el);
+            barsObj.splice(index, 1);
+        },
+
+        remove: function ( barObj ) {
+            var barObjIndex = barsObj.indexOf( barObj );
+            if( barObjIndex !== -1 ) {
+                this.removeAt( barObjIndex );
+            }
         }
     };
 
